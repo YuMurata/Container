@@ -19,9 +19,15 @@ public:
 	)
 		:handle(CreateFile(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile)) {}
 
+	HandleClass()
+		:handle(nullptr) {}
+
 	~HandleClass()
 	{
-		CloseHandle(this->handle);
+		if (this->handle)
+		{
+			CloseHandle(this->handle);
+		}
 	}
 
 	HANDLE Get()const
