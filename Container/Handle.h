@@ -3,7 +3,7 @@
 
 class HandleClass
 {
-private:
+protected:
 	HANDLE handle;
 
 public:
