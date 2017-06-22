@@ -20,7 +20,7 @@ public:
 		:handle(CreateFile(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile)) {}
 
 	HandleClass()
-		:handle(nullptr) {}
+		:handle(INVALID_HANDLE_VALUE) {}
 
 	~HandleClass()
 	{
@@ -33,5 +33,11 @@ public:
 	HANDLE Get()const
 	{
 		return this->handle;
+	}
+
+	bool IsValid()const
+	{
+		auto ret = this->handle != INVALID_HANDLE_VALUE;
+		return ret;
 	}
 };
